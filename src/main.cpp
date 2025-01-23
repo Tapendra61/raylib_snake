@@ -1,9 +1,9 @@
 #include<iostream>
-#include"windowManager.h"
+#include"application.h"
 
 int main() {
-	WindowManager windowManager{800, 600, "Raylib Snake", 60};
-
+	Application app{800, 800, "Raylib Snake", 60};
+	app.run();
 
 	return 0;
 }

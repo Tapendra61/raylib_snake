@@ -139,13 +139,23 @@
     <ClInclude Include="dependencies\raylib\include\raylib.h" />
     <ClInclude Include="dependencies\raylib\include\raymath.h" />
     <ClInclude Include="dependencies\raylib\include\rlgl.h" />
+    <ClInclude Include="include\food.h" />
     <ClInclude Include="include\grid.h" />
-    <ClInclude Include="include\windowManager.h" />
+    <ClInclude Include="include\application.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="include\inputManager.h" />
+    <ClCompile Include="src\food.cpp" />
+    <ClCompile Include="src\inputManager.cpp" />
     <ClCompile Include="src\main.cpp" />
-    <ClCompile Include="src\windowManager.cpp" />
+    <ClCompile Include="src\application.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".gitignore" />
+    <None Include="README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="resources\food.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
