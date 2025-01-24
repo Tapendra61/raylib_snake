@@ -145,9 +145,7 @@
     <ClInclude Include="include\snake.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="include\inputManager.h" />
     <ClCompile Include="src\food.cpp" />
-    <ClCompile Include="src\inputManager.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\application.cpp" />
     <ClCompile Include="src\snake.cpp" />

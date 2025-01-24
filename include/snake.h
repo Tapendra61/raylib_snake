@@ -12,4 +12,5 @@ public:
 
 	void draw(Grid& grid) const;
 	void move();
+	void handleInput();
 };

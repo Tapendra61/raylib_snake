@@ -36,7 +36,7 @@ void Application::start() {
 }
 
 void Application::update() {
-
+	snake->handleInput();
 	if (eventTriggered(0.1)) {
 		snake->move();
 	}
