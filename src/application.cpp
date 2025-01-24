@@ -36,13 +36,27 @@ void Application::start() {
 }
 
 void Application::update() {
-	snake->move();
+
+	if (eventTriggered(0.1)) {
+		snake->move();
+	}
 }
 
 void Application::lateUpdate() {
 	food->draw(*grid);
 	snake->draw(*grid);
 
+}
+
+bool Application::eventTriggered(double interval) {
+	double currentTime = GetTime();
+
+	if (currentTime - lastTriggeredTime >= interval) {
+		lastTriggeredTime = currentTime;
+		return true;
+	}
+
+	return false;
 }
 
 Application::~Application() {

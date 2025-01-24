@@ -7,10 +7,14 @@
 
 class Application {
 private:
+	//Window Properties
 	int windowWidth = 0;
 	int windowHeight = 0;
 	const char* windowTitle;
 	int targetFPS = 0;
+
+	//Event Properties
+	double lastTriggeredTime = 0;
 
 public:
 	Grid* grid = nullptr;
@@ -29,4 +33,6 @@ public:
 	void start();
 	void update();
 	void lateUpdate();
+
+	bool eventTriggered(double interval);
 };
