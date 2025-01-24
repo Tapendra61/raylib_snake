@@ -142,6 +142,7 @@
     <ClInclude Include="include\food.h" />
     <ClInclude Include="include\grid.h" />
     <ClInclude Include="include\application.h" />
+    <ClInclude Include="include\snake.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="include\inputManager.h" />
@@ -149,6 +150,7 @@
     <ClCompile Include="src\inputManager.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\application.cpp" />
+    <ClCompile Include="src\snake.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".gitignore" />

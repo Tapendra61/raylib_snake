@@ -30,18 +30,24 @@ void Application::run() {
 void Application::start() {
 	grid = new Grid();
 	food = new Food();
+	snake = new Snake();
+
+	food->position = food->GetRandomPosition(*grid);
 }
 
 void Application::update() {
-
+	snake->move();
 }
 
 void Application::lateUpdate() {
 	food->draw(*grid);
+	snake->draw(*grid);
+
 }
 
 Application::~Application() {
 	delete food;
 	delete grid;
+	delete snake;
 	CloseWindow();
 }

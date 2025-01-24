@@ -3,6 +3,7 @@
 #include"raylib.h"
 #include"grid.h"
 #include"food.h"
+#include"snake.h"
 
 class Application {
 private:
@@ -14,6 +15,7 @@ private:
 public:
 	Grid* grid = nullptr;
 	Food* food = nullptr;
+	Snake* snake = nullptr;
 
 public:
 	Application(int width, int height, const char *title, int fps);

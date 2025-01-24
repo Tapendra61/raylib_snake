@@ -11,5 +11,6 @@ public:
 
 	Food();
 	~Food();
-	void draw(Grid &grid);
+	void draw(Grid &grid) const;
+	Vector2 GetRandomPosition(Grid &grid);
 };
