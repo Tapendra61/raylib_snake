@@ -3,6 +3,9 @@
 #include"grid.h"
 #include"raylib.h"
 #include"raymath.h"
+#include"food.h"
+
+class Food;
 
 class Snake {
 public:
@@ -13,4 +16,6 @@ public:
 	void draw(Grid& grid) const;
 	void move();
 	void handleInput();
+	void checkCollisionWithFood(Food& food, Grid& grid, Snake& snake);
+	bool positionOverlapsBody(Vector2& position);
 };

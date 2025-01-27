@@ -13,7 +13,7 @@ Food::Food() {
 	UnloadImage(foodImage);
 }
 
-void Food::draw(Grid &grid) const {
+void Food::draw(Grid& grid) const {
 	DrawTexture(foodTexture, position.x * grid.CELL_SIZE, position.y * grid.CELL_SIZE, WHITE);
 }
 
@@ -21,9 +21,25 @@ Food::~Food() {
 	UnloadTexture(foodTexture);
 }
 
-Vector2 Food::GetRandomPosition(Grid &grid) {
+Vector2 Food::generateRandomCells(Grid& grid) {
 	float x = GetRandomValue(0, grid.CELL_COUNT - 1);
 	float y = GetRandomValue(0, grid.CELL_COUNT - 1);
 
 	return Vector2{ x, y };
+}
+
+Vector2 Food::getRandomPosition(Grid& grid, Snake& snake) {
+	
+
+	Vector2 position = generateRandomCells(grid);
+
+	while (snake.positionOverlapsBody(position)) {
+		position = generateRandomCells(grid);
+	}
+
+	return position;
+}
+
+void Food::moveFood(Grid& grid, Snake& snake) {
+	position = getRandomPosition(grid, snake);
 }

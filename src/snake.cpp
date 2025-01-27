@@ -29,3 +29,19 @@ void Snake::handleInput() {
 		direction = { 1, 0 };
 	}
 }
+
+void Snake::checkCollisionWithFood(Food& food, Grid& grid, Snake& snake) {
+	if (Vector2Equals(body[0], food.position)) {
+		food.moveFood(grid, snake);
+	}
+}
+
+bool Snake::positionOverlapsBody(Vector2& position) {
+	for (Vector2 segment : body) {
+		if (Vector2Equals(segment, position)) {
+			return true;
+		}
+	}
+
+	return false;
+}

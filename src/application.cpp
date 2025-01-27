@@ -32,7 +32,7 @@ void Application::start() {
 	food = new Food();
 	snake = new Snake();
 
-	food->position = food->GetRandomPosition(*grid);
+	food->position = food->getRandomPosition(*grid, *snake);
 }
 
 void Application::update() {
@@ -40,6 +40,7 @@ void Application::update() {
 	if (eventTriggered(0.1)) {
 		snake->move();
 	}
+	snake->checkCollisionWithFood(*food, *grid, *snake);
 }
 
 void Application::lateUpdate() {
