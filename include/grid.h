@@ -1,4 +1,5 @@
 #pragma once
+#include"raylib.h"
 
 class Grid {
 public:
@@ -6,4 +7,5 @@ public:
 	const int CELL_COUNT = 25;
 
 	Grid() {};
+	Vector2 getRandomCellPosition();
 };

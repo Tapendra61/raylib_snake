@@ -33,6 +33,7 @@ void Application::start() {
 	snake = new Snake();
 
 	food->position = food->getRandomPosition(*grid, *snake);
+	std::cout << "Food Pos: x: " << food->position.x << ", y: " << food->position.y << std::endl;
 }
 
 void Application::update() {
@@ -46,7 +47,6 @@ void Application::update() {
 void Application::lateUpdate() {
 	food->draw(*grid);
 	snake->draw(*grid);
-
 }
 
 bool Application::eventTriggered(double interval) {

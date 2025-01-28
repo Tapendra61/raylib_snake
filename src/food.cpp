@@ -1,4 +1,5 @@
 #include"food.h"
+#include"snake.h"
 
 Food::Food() {
 	Image foodImage = LoadImage("resources/food.png");
@@ -21,23 +22,14 @@ Food::~Food() {
 	UnloadTexture(foodTexture);
 }
 
-Vector2 Food::generateRandomCells(Grid& grid) {
-	float x = GetRandomValue(0, grid.CELL_COUNT - 1);
-	float y = GetRandomValue(0, grid.CELL_COUNT - 1);
-
-	return Vector2{ x, y };
-}
-
 Vector2 Food::getRandomPosition(Grid& grid, Snake& snake) {
-	
+	Vector2 newPosition = grid.getRandomCellPosition();
 
-	Vector2 position = generateRandomCells(grid);
-
-	while (snake.positionOverlapsBody(position)) {
-		position = generateRandomCells(grid);
+	while (foodPosOverlapsSnakeBody(newPosition, snake)) {
+		newPosition = grid.getRandomCellPosition();
 	}
 
-	return position;
+	return newPosition;
 }
 
 void Food::moveFood(Grid& grid, Snake& snake) {

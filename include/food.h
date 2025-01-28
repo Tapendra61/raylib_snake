@@ -3,7 +3,9 @@
 #include"raylib.h"
 #include"grid.h"
 #include<deque>
-#include"snake.h"
+#include"collision.h"
+
+class Snake;
 
 class Food {
 public:
@@ -15,6 +17,5 @@ public:
 	~Food();
 	void draw(Grid& grid) const;
 	void moveFood(Grid& grid, Snake &snake);
-	Vector2 generateRandomCells(Grid& grid);
 	Vector2 getRandomPosition(Grid& grid, Snake& snake);
 };

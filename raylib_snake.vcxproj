@@ -139,13 +139,16 @@
     <ClInclude Include="dependencies\raylib\include\raylib.h" />
     <ClInclude Include="dependencies\raylib\include\raymath.h" />
     <ClInclude Include="dependencies\raylib\include\rlgl.h" />
+    <ClInclude Include="include\collision.h" />
     <ClInclude Include="include\food.h" />
     <ClInclude Include="include\grid.h" />
     <ClInclude Include="include\application.h" />
     <ClInclude Include="include\snake.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\collision.cpp" />
     <ClCompile Include="src\food.cpp" />
+    <ClCompile Include="src\grid.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\application.cpp" />
     <ClCompile Include="src\snake.cpp" />
