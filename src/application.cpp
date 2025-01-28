@@ -4,7 +4,7 @@ Application::Application(int width, int height, const char* title, int fps) :
 	windowWidth(width), windowHeight(height), windowTitle(title), targetFPS(fps) {}
 
 void Application::run() {
-	InitWindow(windowWidth, windowHeight, windowTitle);
+	InitWindow(windowWidth + (75 * 2), windowHeight + (75 * 2), windowTitle);
 	SetTargetFPS(targetFPS);
 	Color clearColor{ 170, 200, 90, 255 };
 
@@ -14,7 +14,7 @@ void Application::run() {
 	}
 
 	start();
-
+	
 	while (!WindowShouldClose()) {
 		update(); //For input handling
 
@@ -49,6 +49,8 @@ void Application::update() {
 }
 
 void Application::lateUpdate() {
+	DrawRectangleLinesEx(Rectangle{ (float)grid->OFFSET - 5, (float)grid->OFFSET - 5, (float)grid->CELL_SIZE * grid->CELL_COUNT + 10, (float)grid->CELL_SIZE * grid->CELL_COUNT + 10 }, 5, { 40, 55, 30, 255 });
+
 	food->draw(*grid);
 	snake->draw(*grid);
 }

@@ -15,7 +15,7 @@ Food::Food() {
 }
 
 void Food::draw(Grid& grid) const {
-	DrawTexture(foodTexture, (int)position.x * grid.CELL_SIZE, (int)position.y * grid.CELL_SIZE, WHITE);
+	DrawTexture(foodTexture, grid.OFFSET + (int)position.x * grid.CELL_SIZE, grid.OFFSET + (int)position.y * grid.CELL_SIZE, WHITE);
 }
 
 Food::~Food() {

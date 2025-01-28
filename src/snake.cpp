@@ -6,7 +6,7 @@ void Snake::draw(Grid& grid) const {
 		int x = (int)segment.x;
 		int y = (int)segment.y;
 
-		Rectangle rect{ x * (float)grid.CELL_SIZE, y * (float)grid.CELL_SIZE, (float)grid.CELL_SIZE, (float)grid.CELL_SIZE };
+		Rectangle rect{ grid.OFFSET + x * (float)grid.CELL_SIZE, grid.OFFSET + y * (float)grid.CELL_SIZE, (float)grid.CELL_SIZE, (float)grid.CELL_SIZE };
 		DrawRectangleRounded(rect, 0.5, 6, bodyColor);
 	}
 }
