@@ -3,15 +3,19 @@
 
 void Snake::draw(Grid& grid) const {
 	for (Vector2 segment : body) {
-		int x = segment.x;
-		int y = segment.y;
+		int x = (int)segment.x;
+		int y = (int)segment.y;
 
-		Rectangle rect{ x * grid.CELL_SIZE, y * grid.CELL_SIZE, grid.CELL_SIZE, grid.CELL_SIZE };
+		Rectangle rect{ x * (float)grid.CELL_SIZE, y * (float)grid.CELL_SIZE, (float)grid.CELL_SIZE, (float)grid.CELL_SIZE };
 		DrawRectangleRounded(rect, 0.5, 6, bodyColor);
 	}
 }
 
 void Snake::move() {
+	if (segmentAdded) {
+		segmentAdded = false;
+		return;
+	}
 	body.pop_back();
 	body.push_front(Vector2Add(body[0], direction));
 }
@@ -34,5 +38,16 @@ void Snake::handleInput() {
 void Snake::checkCollisionWithFood(Food& food, Grid& grid, Snake& snake) {
 	if (Vector2Equals(body[0], food.position)) {
 		food.moveFood(grid, snake);
+		snake.addSegment();
 	}
+}
+
+void Snake::addSegment() {
+	body.push_front(Vector2Add(body[0], direction));
+	segmentAdded = true;
+}
+
+void Snake::reset() {
+	body = { Vector2{6, 9}, Vector2{5, 9}, Vector2{4, 9} };
+	direction = {1, 0};
 }

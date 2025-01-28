@@ -33,15 +33,19 @@ void Application::start() {
 	snake = new Snake();
 
 	food->position = food->getRandomPosition(*grid, *snake);
-	std::cout << "Food Pos: x: " << food->position.x << ", y: " << food->position.y << std::endl;
 }
 
 void Application::update() {
+	handleInput();
+	if (!gameRunning) return;
 	snake->handleInput();
 	if (eventTriggered(0.1)) {
 		snake->move();
 	}
 	snake->checkCollisionWithFood(*food, *grid, *snake);
+	if (snakeOutOfBounds(*grid, *snake)) {
+		gameOver();
+	}
 }
 
 void Application::lateUpdate() {
@@ -58,6 +62,20 @@ bool Application::eventTriggered(double interval) {
 	}
 
 	return false;
+}
+
+void Application::handleInput() {
+	if (!gameRunning) {
+		if (GetKeyPressed() != NULL) {
+			gameRunning = true;
+		}
+	}
+}
+
+void Application::gameOver() {
+	snake->reset();
+	food->position = food->getRandomPosition(*grid, *snake);
+	gameRunning = false;
 }
 
 Application::~Application() {

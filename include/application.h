@@ -4,8 +4,9 @@
 #include"grid.h"
 #include"food.h"
 #include"snake.h"
+#include"collision.h"
 
-class Application {
+static class Application {
 private:
 	//Window Properties
 	int windowWidth = 0;
@@ -15,6 +16,9 @@ private:
 
 	//Event Properties
 	double lastTriggeredTime = 0;
+
+	//Game Properties
+	bool gameRunning = true;
 
 public:
 	Grid* grid = nullptr;
@@ -33,6 +37,8 @@ public:
 	void start();
 	void update();
 	void lateUpdate();
-
+	void handleInput();
 	bool eventTriggered(double interval);
+
+	void gameOver();
 };
