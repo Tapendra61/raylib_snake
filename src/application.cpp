@@ -51,7 +51,7 @@ void Application::update() {
 void Application::lateUpdate() {
 	DrawRectangleLinesEx(Rectangle{ (float)grid->OFFSET - 5, (float)grid->OFFSET - 5, (float)grid->CELL_SIZE * grid->CELL_COUNT + 10, (float)grid->CELL_SIZE * grid->CELL_COUNT + 10 }, 5, { 40, 55, 30, 255 });
 	DrawText("Classic Snake", grid->OFFSET - 5, 20, 40, { 40, 55, 30, 255 });
-	DrawText(TextFormat("%i", score.score), grid->OFFSET - 5, grid->OFFSET + grid->CELL_SIZE * grid->CELL_COUNT + 10, 40, {40, 55, 30, 255});
+	DrawText(TextFormat("%i", score.score), grid->OFFSET + grid->CELL_SIZE * grid->CELL_COUNT - 25, 20, 40, {40, 55, 30, 255});
 	food->draw(*grid);
 	snake->draw(*grid);
 }
