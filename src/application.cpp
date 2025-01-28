@@ -43,7 +43,7 @@ void Application::update() {
 		snake->move();
 	}
 	snake->checkCollisionWithFood(*food, *grid, *snake);
-	if (snakeOutOfBounds(*grid, *snake)) {
+	if (snakeOutOfBounds(*grid, *snake) || snakeSelfCollided(*snake)) {
 		gameOver();
 	}
 }

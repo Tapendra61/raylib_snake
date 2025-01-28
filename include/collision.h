@@ -5,3 +5,4 @@
 
 bool foodPosOverlapsSnakeBody(Vector2& foodPos, Snake& snake);
 bool snakeOutOfBounds(Grid& grid, Snake& snake);
+bool snakeSelfCollided(Snake& snake);

@@ -20,3 +20,16 @@ bool snakeOutOfBounds(Grid& grid, Snake& snake) {
 
 	return false;
 }
+
+bool snakeSelfCollided(Snake& snake) {
+	std::deque<Vector2> headlessBody = snake.body;
+	headlessBody.pop_front();
+
+	for (Vector2 segment : headlessBody) {
+		if (Vector2Equals(snake.body[0], segment)) {
+			return true;
+		}
+	}
+
+	return false;
+}
