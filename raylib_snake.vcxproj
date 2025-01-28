@@ -143,6 +143,7 @@
     <ClInclude Include="include\food.h" />
     <ClInclude Include="include\grid.h" />
     <ClInclude Include="include\application.h" />
+    <ClInclude Include="include\score.h" />
     <ClInclude Include="include\snake.h" />
   </ItemGroup>
   <ItemGroup>

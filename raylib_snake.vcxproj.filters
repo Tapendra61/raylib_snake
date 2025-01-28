@@ -48,6 +48,9 @@
     <ClInclude Include="include\collision.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\score.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">

@@ -3,6 +3,7 @@
 #include"grid.h"
 #include"raylib.h"
 #include"raymath.h"
+#include"score.h"
 
 class Food;
 
@@ -16,7 +17,7 @@ public:
 	void draw(Grid& grid) const;
 	void move();
 	void handleInput();
-	void checkCollisionWithFood(Food& food, Grid& grid, Snake& snake);
+	void checkCollisionWithFood(Food& food, Grid& grid, Snake& snake, Score& score);
 	void addSegment();
 	void reset();
 };

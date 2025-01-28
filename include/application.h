@@ -5,8 +5,9 @@
 #include"food.h"
 #include"snake.h"
 #include"collision.h"
+#include"score.h"
 
-static class Application {
+class Application {
 private:
 	//Window Properties
 	int windowWidth = 0;
@@ -24,6 +25,7 @@ public:
 	Grid* grid = nullptr;
 	Food* food = nullptr;
 	Snake* snake = nullptr;
+	Score score = Score();
 
 public:
 	Application(int width, int height, const char *title, int fps);

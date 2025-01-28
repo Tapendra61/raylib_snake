@@ -42,7 +42,7 @@ void Application::update() {
 	if (eventTriggered(0.1)) {
 		snake->move();
 	}
-	snake->checkCollisionWithFood(*food, *grid, *snake);
+	snake->checkCollisionWithFood(*food, *grid, *snake, score);
 	if (snakeOutOfBounds(*grid, *snake) || snakeSelfCollided(*snake)) {
 		gameOver();
 	}
@@ -50,7 +50,8 @@ void Application::update() {
 
 void Application::lateUpdate() {
 	DrawRectangleLinesEx(Rectangle{ (float)grid->OFFSET - 5, (float)grid->OFFSET - 5, (float)grid->CELL_SIZE * grid->CELL_COUNT + 10, (float)grid->CELL_SIZE * grid->CELL_COUNT + 10 }, 5, { 40, 55, 30, 255 });
-
+	DrawText("Classic Snake", grid->OFFSET - 5, 20, 40, { 40, 55, 30, 255 });
+	DrawText(TextFormat("%i", score.score), grid->OFFSET - 5, grid->OFFSET + grid->CELL_SIZE * grid->CELL_COUNT + 10, 40, {40, 55, 30, 255});
 	food->draw(*grid);
 	snake->draw(*grid);
 }
@@ -78,6 +79,7 @@ void Application::gameOver() {
 	snake->reset();
 	food->position = food->getRandomPosition(*grid, *snake);
 	gameRunning = false;
+	score.score = 0;
 }
 
 Application::~Application() {

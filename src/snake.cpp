@@ -35,10 +35,11 @@ void Snake::handleInput() {
 	}
 }
 
-void Snake::checkCollisionWithFood(Food& food, Grid& grid, Snake& snake) {
+void Snake::checkCollisionWithFood(Food& food, Grid& grid, Snake& snake, Score& score) {
 	if (Vector2Equals(body[0], food.position)) {
 		food.moveFood(grid, snake);
 		snake.addSegment();
+		score.score++;
 	}
 }
 
